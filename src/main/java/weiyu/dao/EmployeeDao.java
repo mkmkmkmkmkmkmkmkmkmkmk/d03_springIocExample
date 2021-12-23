@@ -1,6 +1,6 @@
-package dao;
+package weiyu.dao;
 
-import domain.Employee;
+import weiyu.domain.Employee;
 
 import java.util.List;
 

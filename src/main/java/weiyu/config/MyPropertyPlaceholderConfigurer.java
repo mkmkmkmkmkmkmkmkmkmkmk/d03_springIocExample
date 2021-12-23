@@ -1,11 +1,10 @@
-package config;
+package weiyu.config;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
-import static utils.Base64Utils.decode;
+import static weiyu.utils.Base64Utils.decode;
 
 /**
  * 5.重写 PropertyPlaceholderConfigurer 中祖先中PropertyResourceConfigurer的方法

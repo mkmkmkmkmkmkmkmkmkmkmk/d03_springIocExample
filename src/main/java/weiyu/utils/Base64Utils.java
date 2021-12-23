@@ -1,4 +1,4 @@
-package utils;
+package weiyu.utils;
 
 import org.apache.commons.codec.binary.*;
 

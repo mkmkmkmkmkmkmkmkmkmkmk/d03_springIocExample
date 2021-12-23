@@ -1,11 +1,9 @@
-package dao.impl;
+package weiyu.dao.impl;
 
-import com.zaxxer.hikari.HikariDataSource;
-import dao.EmployeeDao;
-import domain.Employee;
+import weiyu.dao.EmployeeDao;
+import weiyu.domain.Employee;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-import utils.HiKariUtils;
 
 import java.sql.SQLException;
 import java.util.List;

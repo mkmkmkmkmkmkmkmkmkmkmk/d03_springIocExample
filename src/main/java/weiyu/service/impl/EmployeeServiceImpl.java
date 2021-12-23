@@ -1,9 +1,8 @@
-package service.impl;
+package weiyu.service.impl;
 
-import dao.EmployeeDao;
-import dao.impl.EmployeeDaoImpl;
-import domain.Employee;
-import service.EmployeeService;
+import weiyu.dao.EmployeeDao;
+import weiyu.domain.Employee;
+import weiyu.service.EmployeeService;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  **/
 public class EmployeeServiceImpl implements EmployeeService {
     //1. 原生方式：没有解耦
-    //private EmployeeDao dao = new EmployeeDaoImpl();
+    //private EmployeeDao weiyu.dao = new EmployeeDaoImpl();
     //2.使用springIoc解耦
     private EmployeeDao dao;
     public void setDao(EmployeeDao dao) {

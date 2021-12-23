@@ -1,4 +1,4 @@
-package domain;
+package weiyu.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

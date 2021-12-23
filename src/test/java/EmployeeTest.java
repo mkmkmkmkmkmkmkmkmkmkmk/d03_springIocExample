@@ -1,12 +1,13 @@
-import domain.Employee;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import service.EmployeeService;
-import service.impl.EmployeeServiceImpl;
+import weiyu.dao.impl.EmployeeDaoImpl;
+import weiyu.dao.impl.EmployeeDaoImpl1;
+import weiyu.service.EmployeeService;
+import weiyu.service.impl.EmployeeServiceImpl;
 
-import static utils.Base64Utils.encode;
-import static utils.Base64Utils.decode;
+import static weiyu.utils.Base64Utils.encode;
+import static weiyu.utils.Base64Utils.decode;
 
 /**
  * @Author：Weiyu
@@ -58,5 +59,15 @@ public class EmployeeTest {
         ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         EmployeeService employeeService= classPathXmlApplicationContext.getBean("empService",EmployeeService.class);
         employeeService.findallEmps().forEach(System.out::println);
+    }
+    /**
+     * 6.注解IoC之Bean对象创建注解.@Componet=@Service=@Controller=@Repository
+     * 开启注解扫描
+     */
+    @Test
+    public void ComponetTest(){
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("empDao", EmployeeDaoImpl1.class);
+        System.out.println(employeeDaoImpl1.toString());
     }
 }

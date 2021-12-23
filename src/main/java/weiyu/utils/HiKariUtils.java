@@ -1,4 +1,4 @@
-package utils;
+package weiyu.utils;
 
 import com.zaxxer.hikari.HikariDataSource;
 

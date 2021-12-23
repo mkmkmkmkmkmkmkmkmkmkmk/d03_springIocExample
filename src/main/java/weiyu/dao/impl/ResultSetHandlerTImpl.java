@@ -1,9 +1,4 @@
-package dao.impl;
-
-import org.apache.commons.dbutils.ResultSetHandler;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
+package weiyu.dao.impl;
 
 /**
  * @Author：Weiyu
