@@ -6,11 +6,32 @@
         对应的java代码：UserDao userDao = new UserDaoImpl1();
     -->
     <!--2.创建数据源：使用springIoc解耦-->
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <!--<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ee1?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;useUnicode=yes" />
         <property name="username" value="root" />
        <property name="password" value="123456"/>
+    </bean>
+    <bean id="qr" class="org.apache.commons.dbutils.QueryRunner">
+        <constructor-arg name="ds" ref="dataSource"/>
+    </bean>
+    &lt;!&ndash;注入qr在EmployeeDaoImpl中&ndash;&gt;
+    <bean id="empDao" class="dao.impl.EmployeeDaoImpl">
+        <property name="qr" ref="qr"/>
+    </bean>
+    <bean id="empService" class="service.impl.EmployeeServiceImpl">
+        <property name="dao" ref="empDao"/>
+    </bean>-->
+    <!--3.在spring framework中提供了一个叫做PlacePropertyHolder，加载属性配置文件到spring容器中-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}"/>
     </bean>
     <bean id="qr" class="org.apache.commons.dbutils.QueryRunner">
         <constructor-arg name="ds" ref="dataSource"/>
@@ -22,5 +43,6 @@
     <bean id="empService" class="service.impl.EmployeeServiceImpl">
         <property name="dao" ref="empDao"/>
     </bean>
+
 
 </beans>

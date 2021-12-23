@@ -22,6 +22,7 @@ public class EmployeeTest {
     }
     /**
      * 2.使用springIoc解耦
+     * 3.引入外部的属性配置文件jdbc.properties
      */
     @Test
     public void IocTest(){
