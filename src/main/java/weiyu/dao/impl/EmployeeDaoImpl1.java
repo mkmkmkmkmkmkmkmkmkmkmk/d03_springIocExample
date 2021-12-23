@@ -1,5 +1,6 @@
 package weiyu.dao.impl;
 
+import org.springframework.context.annotation.Scope;
 import weiyu.dao.EmployeeDao;
 import weiyu.domain.Employee;
 import org.apache.commons.dbutils.QueryRunner;
@@ -14,6 +15,7 @@ import java.util.List;
  *使用@Component("empDao2")配置
   */
 //将当前类的对象交给spring容器管理，并且取名是empDao2
+@Scope("prototype")
 @Component//如果没有指定名称，默达名称就是当前类的简单名称首字母小写。employeeDaolmpl2
 //@Component("empDao")
 public class EmployeeDaoImpl1 {

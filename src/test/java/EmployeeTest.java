@@ -72,4 +72,15 @@ public class EmployeeTest {
 
         System.out.println(employeeDaoImpl1.toString());
     }
+    /**
+     * 测试@scope()
+     */
+    @Test
+    public void ScopeTest(){
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("empDao", EmployeeDaoImpl1.class);
+        EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
+        EmployeeDaoImpl1 employeeDaoImpl2= classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
+        System.out.println(employeeDaoImpl1==employeeDaoImpl2);
+    }
 }
