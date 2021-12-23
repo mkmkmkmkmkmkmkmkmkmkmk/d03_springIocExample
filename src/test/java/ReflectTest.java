@@ -3,10 +3,7 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 
 /**
- * @Author：Weiyu
- * @Version:
- * @Since:
- * @date：2021-12-23_周四 23:50
+ * 7.注解IoC之依赖注入
  **/
 public class ReflectTest {
     @Test

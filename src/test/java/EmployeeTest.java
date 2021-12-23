@@ -98,10 +98,10 @@ public class EmployeeTest {
     /**
      * 9.测试@Autowired 自动注入依赖的对象(前提是被注入的对象在spring容器中)
      */
-    //@Test
-    /*public void AutowiredTest(){
+    @Test
+    public void AutowiredTest(){
         ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        EmployeeDaoImpl1 employeeDaoImpl2 = classPathXmlApplicationContext.getBean("employeeDaoImpl2", EmployeeDaoImpl2.class);
+        EmployeeDaoImpl2 employeeDaoImpl2 = classPathXmlApplicationContext.getBean("employeeDaoImpl2", EmployeeDaoImpl2.class);
         System.out.println(employeeDaoImpl2.toString());
-    }*/
+    }
 }
