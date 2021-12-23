@@ -1,6 +1,7 @@
 package weiyu.dao.impl;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 import weiyu.dao.EmployeeDao;
 import weiyu.domain.Employee;
 import org.apache.commons.dbutils.QueryRunner;
@@ -21,11 +22,13 @@ import java.util.List;
 @Scope//默认是singleton
 @Component//如果没有指定名称，默达名称就是当前类的简单名称首字母小写。employeeDaolmpl2
 //@Component("empDao")
+//@Repository
 public class EmployeeDaoImpl1 {
     private String sting="EmployeeDaoImpl1";
     public void setSting(String sting) {
         this.sting = sting;
     }
+
     //8.
     @PostConstruct
     public void init(){

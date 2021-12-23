@@ -3,6 +3,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import weiyu.dao.impl.EmployeeDaoImpl;
 import weiyu.dao.impl.EmployeeDaoImpl1;
+import weiyu.dao.impl.EmployeeDaoImpl2;
 import weiyu.service.EmployeeService;
 import weiyu.service.impl.EmployeeServiceImpl;
 
@@ -94,4 +95,13 @@ public class EmployeeTest {
         EmployeeDaoImpl1 employeeDaoImpl2 = classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
         System.out.println(employeeDaoImpl1==employeeDaoImpl2);
     }
+    /**
+     * 9.测试@Autowired 自动注入依赖的对象(前提是被注入的对象在spring容器中)
+     */
+    //@Test
+    /*public void AutowiredTest(){
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        EmployeeDaoImpl1 employeeDaoImpl2 = classPathXmlApplicationContext.getBean("employeeDaoImpl2", EmployeeDaoImpl2.class);
+        System.out.println(employeeDaoImpl2.toString());
+    }*/
 }

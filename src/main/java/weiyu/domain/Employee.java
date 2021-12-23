@@ -3,6 +3,7 @@ package weiyu.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Component("employee")
 public class Employee implements Serializable {
     //private Integer cid;
     private Integer eid;
