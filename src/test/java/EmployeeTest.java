@@ -5,6 +5,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.EmployeeService;
 import service.impl.EmployeeServiceImpl;
 
+import static utils.Base64Utils.encode;
+import static utils.Base64Utils.decode;
+
 /**
  * @Author：Weiyu
  * @Version:
@@ -26,6 +29,32 @@ public class EmployeeTest {
      */
     @Test
     public void IocTest(){
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        EmployeeService employeeService= classPathXmlApplicationContext.getBean("empService",EmployeeService.class);
+        employeeService.findallEmps().forEach(System.out::println);
+    }
+    /**
+     * 4.加密测试
+     */
+    @Test
+    public void enDecodeTest(){
+        System.out.println("encodeun:"+encode("root"));
+        System.out.println("encodeps:"+encode("123456"));
+    }
+    /**
+     * 4.加密测试
+     */
+    @Test
+    public void DecodeTest(){
+        System.out.println("encodeun:"+decode("cm9vdA=="));
+        System.out.println("encodeps:"+decode("MTIzNDU2"));
+    }
+
+    /**
+     * 5.测试使用Base64编码解码properties配置文件的username,password
+     */
+    @Test
+    public void decodeTest(){
         ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         EmployeeService employeeService= classPathXmlApplicationContext.getBean("empService",EmployeeService.class);
         employeeService.findallEmps().forEach(System.out::println);
