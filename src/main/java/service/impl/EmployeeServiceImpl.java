@@ -14,7 +14,14 @@ import java.util.List;
  * @date：2021-12-23_周四 07:49
  **/
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeDao dao = new EmployeeDaoImpl();
+    //1. 原生方式：没有解耦
+    //private EmployeeDao dao = new EmployeeDaoImpl();
+    //2.使用springIoc解耦
+    private EmployeeDao dao;
+    public void setDao(EmployeeDao dao) {
+        this.dao = dao;
+    }
+
     @Override
     public List<Employee> findallEmps() {
         return dao.findallEmps();

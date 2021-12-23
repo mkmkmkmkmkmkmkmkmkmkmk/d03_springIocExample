@@ -6,11 +6,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * @Author：Weiyu
- * @Version:
- * @Since:
- * @date：2021-12-23_周四 07:29
- **/
+ *1. 原生方式：没有解耦
+ */
 public class HiKariUtils {
     private static HikariDataSource hikariDataSource =new HikariDataSource();
     static {

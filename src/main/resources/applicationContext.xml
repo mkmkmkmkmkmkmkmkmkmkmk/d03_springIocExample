@@ -5,15 +5,22 @@
     <!--
         对应的java代码：UserDao userDao = new UserDaoImpl1();
     -->
-    <!--创建数据源-->
-   <!-- <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <!--2.创建数据源：使用springIoc解耦-->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name=" jdbcUrl" value="jdbc:mysql://localhost:3306/ee1?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;useUnicode=yes" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ee1?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;useUnicode=yes" />
         <property name="username" value="root" />
        <property name="password" value="123456"/>
     </bean>
     <bean id="qr" class="org.apache.commons.dbutils.QueryRunner">
         <constructor-arg name="ds" ref="dataSource"/>
-    </bean>-->
+    </bean>
+    <!--注入qr在EmployeeDaoImpl中-->
+    <bean id="empDao" class="dao.impl.EmployeeDaoImpl">
+        <property name="qr" ref="qr"/>
+    </bean>
+    <bean id="empService" class="service.impl.EmployeeServiceImpl">
+        <property name="dao" ref="empDao"/>
+    </bean>
 
 </beans>
