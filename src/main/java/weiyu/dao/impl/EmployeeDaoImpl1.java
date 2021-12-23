@@ -7,6 +7,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -15,7 +17,8 @@ import java.util.List;
  *使用@Component("empDao2")配置
   */
 //将当前类的对象交给spring容器管理，并且取名是empDao2
-@Scope("prototype")
+//@Scope("prototype")//7.多例prototype的垃圾回收机制，init方法只对singleton有效
+@Scope//默认是singleton
 @Component//如果没有指定名称，默达名称就是当前类的简单名称首字母小写。employeeDaolmpl2
 //@Component("empDao")
 public class EmployeeDaoImpl1 {
@@ -23,7 +26,16 @@ public class EmployeeDaoImpl1 {
     public void setSting(String sting) {
         this.sting = sting;
     }
+    //8.
+    @PostConstruct
+    public void init(){
+        System.out.println("init......");
+    }
 
+    @PreDestroy
+    public  void destroy(){
+        System.out.println("destroy......");
+    }
 
     @Override
     public String toString() {
@@ -31,4 +43,5 @@ public class EmployeeDaoImpl1 {
                 "sting='" + sting + '\'' +
                 '}';
     }
+
 }

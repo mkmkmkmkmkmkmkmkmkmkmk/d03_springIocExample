@@ -73,7 +73,7 @@ public class EmployeeTest {
         System.out.println(employeeDaoImpl1.toString());
     }
     /**
-     * 测试@scope()
+     * 7.测试@scope()
      */
     @Test
     public void ScopeTest(){
@@ -81,6 +81,17 @@ public class EmployeeTest {
         //EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("empDao", EmployeeDaoImpl1.class);
         EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
         EmployeeDaoImpl1 employeeDaoImpl2= classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
+        System.out.println(employeeDaoImpl1==employeeDaoImpl2);
+    }
+    /**
+     * 8.测试@PostConstructor @PreDestroy（初始化和销毁方法）
+     */
+    @Test
+    public void InitDestroyTest(){
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //EmployeeDaoImpl1 employeeDaoImpl1= classPathXmlApplicationContext.getBean("empDao", EmployeeDaoImpl1.class);
+        EmployeeDaoImpl1 employeeDaoImpl1 = classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
+        EmployeeDaoImpl1 employeeDaoImpl2 = classPathXmlApplicationContext.getBean("employeeDaoImpl1", EmployeeDaoImpl1.class);
         System.out.println(employeeDaoImpl1==employeeDaoImpl2);
     }
 }
