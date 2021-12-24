@@ -5,7 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import weiyu.dao.impl.EmloyeeDaoImpl3;
 import weiyu.dao.impl.EmployeeDaoImpl2;
+import weiyu.service.impl.EmployeeServiceImpl3;
 
 /**
  * @Author：Weiyu
@@ -18,6 +20,8 @@ import weiyu.dao.impl.EmployeeDaoImpl2;
 public class JunitTest {
     @Autowired
     private EmployeeDaoImpl2 empDao2;
+    @Autowired
+    private EmployeeServiceImpl3 empService3;
 
     /**
      *  ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -31,5 +35,20 @@ public class JunitTest {
     @Test
     public void JunitTest(){
         System.out.println(empDao2.toString());
+    }
+    /**
+     * 10.测试用IOC改造为注解实现功能
+     */
+    /**
+     *  <bean id="empDao" class="weiyu.dao.impl.EmloyeeDaoImpl3">
+     *         <property name="qr" ref="qr"/>
+     *     </bean>
+     *     <bean id="empService3" class="weiyu.service.impl.EmployeeServiceImpl3">
+     *         <property name="employeeDao" ref="empDao"/>
+     *     </bean>
+     */
+    @Test
+    public void IocAnnotationTest(){
+        empService3.findallEmps().forEach(System.out::println);
     }
 }
