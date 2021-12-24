@@ -4,20 +4,33 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.activation.DataSource;
 
 /**
  *@Bean的作用
- * 11.配置类配置spring的数据源.
+ * 11.配置类配置spring的数据源.@PropertySource， @value
+ * ① @PropertySource：引入外部的属性配置文件
+ * ⑥ @value：获取属性文件的key值
  **/
 @Configuration
 @ComponentScan("weiyu")
+@PropertySource("classpath:jdbc1.properties")//加载配置文件
 public class SpringConfig {
-
+    //值必须使用${}获取jdbc.properties 中值
+    @Value("${jdbc.driverClassName}")
+    private String  driverClassName;
+    @Value("${jdbc.url}")
+    private String url;
+    @Value("${jdbc.user}")
+    private String username;
+    @Value("${jdbc.pass}")
+    private  String password;
 
 
     /**
@@ -33,10 +46,10 @@ public class SpringConfig {
      @Bean
     public HikariDataSource dataSource() {
         HikariDataSource hikariDataSource=new HikariDataSource();
-        hikariDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        hikariDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/ee1?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&useUnicode=yes");
-        hikariDataSource.setUsername("root");
-        hikariDataSource.setPassword("123456");
+        hikariDataSource.setDriverClassName(driverClassName);
+        hikariDataSource.setJdbcUrl(url);
+        hikariDataSource.setUsername(username);
+        hikariDataSource.setPassword(password);
          return hikariDataSource;
     }
     //自动将上面的dataSource注入进来

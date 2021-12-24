@@ -42,7 +42,8 @@ public class JunitConfigTest {
      *     </bean> 去掉，使用spring的Class配置文件SpringConfig去配置数据源
      */
     /**
-     * 11.配置类配置spring的数据源.
+     * 11. 配置类配置spring的数据源.
+     * 12.配置类配置spring的数据源，读取jdbc1.properties加载数据源配置文件
      */
     @Test
     public void  ConfigTset(){
