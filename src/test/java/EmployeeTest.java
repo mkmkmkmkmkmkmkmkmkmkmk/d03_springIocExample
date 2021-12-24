@@ -1,6 +1,9 @@
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import weiyu.dao.impl.EmployeeDaoImpl;
 import weiyu.dao.impl.EmployeeDaoImpl1;
 import weiyu.dao.impl.EmployeeDaoImpl2;
@@ -16,6 +19,7 @@ import static weiyu.utils.Base64Utils.decode;
  * @Since:
  * @date：2021-12-23_周四 07:53
  **/
+
 public class EmployeeTest {
     /**
      *1. 原生方式：没有解耦

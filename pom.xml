@@ -144,6 +144,14 @@
         <artifactId>spring-core</artifactId>
         <version>5.1.15.RELEASE</version>
       </dependency>
+       <!--junit整合：注意:Junl的坐标也要引入，要求版本必须是4.12+-->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>5.1.15.RELEASE</version>
+        <scope>test</scope>
+      </dependency>
+
 
       <!--beanUtils-->
       <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
